@@ -1,0 +1,9 @@
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\bin\Debug\netcoreapp3.1\VNNSIS.Utilities.deps.json
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\bin\Debug\netcoreapp3.1\VNNSIS.Utilities.dll
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\bin\Debug\netcoreapp3.1\VNNSIS.Utilities.pdb
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\obj\Debug\netcoreapp3.1\VNNSIS.Utilities.csprojAssemblyReference.cache
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\obj\Debug\netcoreapp3.1\VNNSIS.Utilities.AssemblyInfoInputs.cache
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\obj\Debug\netcoreapp3.1\VNNSIS.Utilities.AssemblyInfo.cs
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\obj\Debug\netcoreapp3.1\VNNSIS.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\obj\Debug\netcoreapp3.1\VNNSIS.Utilities.dll
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Utilities\obj\Debug\netcoreapp3.1\VNNSIS.Utilities.pdb
