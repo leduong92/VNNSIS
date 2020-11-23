@@ -18,10 +18,17 @@ namespace VNNSIS.BackendApi.Controllers
           }
 
           [HttpGet]
-          public async Task<ActionResult<List<TdCurMoldLog>>> GetSection()
+          public async Task<ActionResult<List<TdSisCurMenu>>> GetSection()
           {
-               var section = await _context.TdCurMoldLog.Take(200).ToListAsync();
+               var section = await _context.TdSisCurMenu.Take(200).ToListAsync();
                return Ok(section);
+          }
+
+          [HttpGet("{line}}")]
+          public async Task<ActionResult<List<TmPostmachineOs>>> GetMachineByLine(string line)
+          {
+               var result = await _context.TmPostmachineOs.Where(x => x.LineNo == line).ToListAsync();
+               return Ok(result);
           }
      }
 }

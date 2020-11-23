@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VNNSIS.Core.Entities.PgEntities
 {
+     [Table("tr_cur_job_nbcs")]
      public partial class TrCurJobNbcs
      {
           public char? RecordStatus { get; set; }
