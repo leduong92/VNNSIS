@@ -4,13 +4,12 @@ using VNNSIS.Core.Entities.PgEntities;
 
 namespace VNNSIS.Infrastructure.Data.Config
 {
-     public class TmPostmachineOsConfiguration : IEntityTypeConfiguration<TmPostmachineOs>
+     public class TmPostmachineOsConfiguration : IEntityTypeConfiguration<TmPostMachineOs>
      {
-          public void Configure(EntityTypeBuilder<TmPostmachineOs> builder)
+          public void Configure(EntityTypeBuilder<TmPostMachineOs> builder)
           {
                builder.ToTable("tm_postmachine_os");
-               builder.HasKey(x => x.LineNo);
-               builder.HasKey(x => x.PressNo);
+               builder.HasKey(x => new { x.LineNo, x.PressNo });
           }
      }
 }

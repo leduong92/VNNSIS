@@ -3,7 +3,7 @@
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_cur_mold_log")]
-     public partial class TdCurMoldLog
+     public class TdCurMoldLog
      {
           [Column("mold_up")]
           public string MoldUp { get; set; }

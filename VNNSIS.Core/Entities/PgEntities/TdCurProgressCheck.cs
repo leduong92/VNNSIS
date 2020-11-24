@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_cur_progress_check")]
-     public partial class TdCurProgressCheck
+     public class TdCurProgressCheck
      {
           [Column("job_order_no")]
           public string JobOrderNo { get; set; }

@@ -1,27 +1,31 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities.PgEntities;
-using VNNSIS.Infrastructure.EF;
+using VNNSIS.Core.Interfaces;
 
 namespace VNNSIS.BackendApi.Controllers
 {
      public class HomeController : BaseApiController
      {
-          private readonly PgDbContext _context;
-
-          public HomeController(PgDbContext context)
+          private readonly IUnitOfWork _uow;
+          public HomeController(IUnitOfWork uow)
           {
-               _context = context;
+               _uow = uow;
           }
 
           [HttpGet]
-          public async Task<ActionResult<List<TdCurMoldLog>>> GetSection()
+          public async Task<ActionResult<List<TmPostMachineOs>>> GetSection()
           {
-               var section = await _context.TdCurMoldLog.Take(200).ToListAsync();
+               var section = await _uow.PgRepository<TmPostMachineOs>().ListAllAsync();
                return Ok(section);
+          }
+
+          [HttpGet("{line}")]
+          public async Task<ActionResult<List<TmPostMachineOs>>> GetMachineByLine(string line)
+          {
+               var result = await _uow.PgRepository<TmPostMachineOs>().GetByIdAsync(line);
+               return Ok(result);
           }
      }
 }
