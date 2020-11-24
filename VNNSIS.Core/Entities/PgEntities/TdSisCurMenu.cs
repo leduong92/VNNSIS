@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_sis_cur_menu")]
-     public partial class TdSisCurMenu
+     public class TdSisCurMenu : BaseEntity
      {
           private string menuId;
           [Column("menu_id")]

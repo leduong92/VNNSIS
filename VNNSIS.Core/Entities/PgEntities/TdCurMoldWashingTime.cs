@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_cur_mold_washing_time")]
-     public partial class TdCurMoldWashingTime
+     public class TdCurMoldWashingTime
      {
           [Column("line_no")]
           public string LineNo { get; set; }

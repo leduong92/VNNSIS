@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("tr_cur_job_nbcs")]
-     public partial class TrCurJobNbcs
+     public class TrCurJobNbcs
      {
           public char? RecordStatus { get; set; }
           public int? EntryDate { get; set; }

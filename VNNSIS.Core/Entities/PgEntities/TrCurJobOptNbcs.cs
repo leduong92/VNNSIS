@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VNNSIS.Core.Entities.PgEntities
 {
-     public partial class TrCurJobOptNbcs
+     public class TrCurJobOptNbcs
      {
           public char? RecordStatus { get; set; }
           public int? EntryDate { get; set; }

@@ -3,7 +3,7 @@
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("si_pro_error_detail")]
-     public partial class SiProErrorDetail
+     public class SiProErrorDetail
      {
           [Column("progress_operation_seq")]
           public short ProgressOperationSeq { get; set; }

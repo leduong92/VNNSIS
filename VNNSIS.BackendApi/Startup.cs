@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using VNNSIS.Core.Interfaces;
+using VNNSIS.Infrastructure.Data;
 using VNNSIS.Infrastructure.EF;
 using VNNSIS.Utilities.Constants;
 
@@ -31,6 +26,8 @@ namespace VNNSIS.BackendApi
                services.AddControllers();
                services.AddDbContext<PgDbContext>(options => options.UseNpgsql(_config.GetConnectionString(SystemConstants.PgDbConnect)));
                services.AddDbContext<SqlDbContext>(options => options.UseSqlServer(_config.GetConnectionString(SystemConstants.SqlDbConnect)));
+               services.AddScoped<IUnitOfWork, UnitOfWork>();
+               services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
           }
 
           // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_sis_error_menu")]
-     public partial class TdSisErrorMenu
+     public class TdSisErrorMenu
      {
           private string errorId;
           [Column("error_id")]

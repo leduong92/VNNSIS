@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_sis_section_master")]
-     public partial class TdSisSectionMaster
+     public class TdSisSectionMaster
      {
           private string sectionId;
           [Column("section_id")]

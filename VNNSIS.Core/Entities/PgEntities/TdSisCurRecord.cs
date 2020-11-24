@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_sis_cur_record")]
-     public partial class TdSisCurRecord : BaseEntity
+     public class TdSisCurRecord : BaseEntity
      {
           [Column("line_no")]
           public string LineNo { get; set; }

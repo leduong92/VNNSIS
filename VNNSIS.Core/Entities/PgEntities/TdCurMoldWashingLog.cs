@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_cur_mold_washing_log")]
-     public partial class TdCurMoldWashingLog : BaseEntity
+     public class TdCurMoldWashingLog : BaseEntity
      {
           [Column("mold_up")]
           public string MoldUp { get; set; }

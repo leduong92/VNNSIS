@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VNNSIS.Core.Entities.PgEntities
 {
-     public partial class TrLblInfoNbcs
+     public class TrLblInfoNbcs
      {
           public char? RecordStatus { get; set; }
           public int? EntryDate { get; set; }

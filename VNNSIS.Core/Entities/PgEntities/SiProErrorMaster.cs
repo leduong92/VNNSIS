@@ -3,7 +3,7 @@
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("si_pro_error_master")]
-     public partial class SiProErrorMaster
+     public class SiProErrorMaster
      {
           private string errorId;
           [Column("error_id")]
