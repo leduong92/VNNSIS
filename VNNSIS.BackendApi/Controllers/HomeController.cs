@@ -15,16 +15,16 @@ namespace VNNSIS.BackendApi.Controllers
           }
 
           [HttpGet]
-          public async Task<ActionResult<List<tm_postmachine_os>>> GetSection()
+          public async Task<ActionResult<List<TmPostMachineOs>>> GetSection()
           {
-               var section = await _uow.PgRepository<tm_postmachine_os>().ListAllAsync();
+               var section = await _uow.PgRepository<TmPostMachineOs>().ListAllAsync();
                return Ok(section);
           }
 
           [HttpGet("{line}")]
-          public async Task<ActionResult<List<tm_postmachine_os>>> GetMachineByLine(string line)
+          public async Task<ActionResult<List<TmPostMachineOs>>> GetMachineByLine(string line)
           {
-               var result = await _uow.PgRepository<tm_postmachine_os>().GetByIdAsync(line);
+               var result = await _uow.PgRepository<TmPostMachineOs>().GetByIdAsync(line);
                return Ok(result);
           }
      }

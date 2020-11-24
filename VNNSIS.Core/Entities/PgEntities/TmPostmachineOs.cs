@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("tm_postmachine_os")]
-     public class tm_postmachine_os : BaseEntity
+     public class TmPostMachineOs : BaseEntity
      {
           [Column("line_no")]
           public string LineNo { get; set; }

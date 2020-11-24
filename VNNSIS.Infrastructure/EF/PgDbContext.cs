@@ -30,7 +30,7 @@ namespace VNNSIS.Infrastructure.EF
           public DbSet<TdSisErrorMenu> TdSisErrorMenu { get; set; }
           public DbSet<TdSisSectionLine> TdSisSectionLine { get; set; }
           public DbSet<TdSisSectionMaster> TdSisSectionMaster { get; set; }
-          public DbSet<tm_postmachine_os> tm_postmachine_os { get; set; }
+          public DbSet<TmPostMachineOs> TmPostMachineOs { get; set; }
           public DbSet<TrCurJobNbcs> TrCurJobNbcs { get; set; }
           public DbSet<TrCurJobOptNbcs> TrCurJobOptNbcs { get; set; }
           public DbSet<TrLblInfoNbcs> TrLblInfoNbcs { get; set; }
