@@ -1,11 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities.PgEntities;
 using VNNSIS.Core.Interfaces;
-using VNNSIS.Infrastructure.EF;
 
 namespace VNNSIS.BackendApi.Controllers
 {
@@ -18,16 +15,16 @@ namespace VNNSIS.BackendApi.Controllers
           }
 
           [HttpGet]
-          public async Task<ActionResult<List<TdSisCurMenu>>> GetSection()
+          public async Task<ActionResult<List<tm_postmachine_os>>> GetSection()
           {
-               var section = await _uow.PgRepository<TdSisCurMenu>().ListAllAsync();
+               var section = await _uow.PgRepository<tm_postmachine_os>().ListAllAsync();
                return Ok(section);
           }
 
           [HttpGet("{line}")]
-          public async Task<ActionResult<List<TmPostmachineOs>>> GetMachineByLine(string line)
+          public async Task<ActionResult<List<tm_postmachine_os>>> GetMachineByLine(string line)
           {
-               var result = await _uow.PgRepository<TmPostmachineOs>().GetByIdAsync(line);
+               var result = await _uow.PgRepository<tm_postmachine_os>().GetByIdAsync(line);
                return Ok(result);
           }
      }

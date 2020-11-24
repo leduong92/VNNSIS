@@ -7,6 +7,8 @@ namespace VNNSIS.Core.Entities.PgEntities
      [Table("td_sis_cur_record")]
      public class TdSisCurRecord : BaseEntity
      {
+          [Column("id")]
+          public int Id { get; set; }
           [Column("line_no")]
           public string LineNo { get; set; }
           [Column("press_no")]

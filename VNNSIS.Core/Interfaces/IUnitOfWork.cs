@@ -7,7 +7,6 @@ namespace VNNSIS.Core.Interfaces
      public interface IUnitOfWork : IDisposable
      {
           IGenericRepository<TEntity> PgRepository<TEntity>() where TEntity : BaseEntity;
-          Task<int> SqlComplete();
           Task<int> PgComplete();
      }
 }

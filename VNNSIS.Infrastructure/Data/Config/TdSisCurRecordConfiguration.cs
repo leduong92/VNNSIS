@@ -8,8 +8,8 @@ namespace VNNSIS.Infrastructure.Data.Config
      {
           public void Configure(EntityTypeBuilder<TdSisCurRecord> builder)
           {
-               // builder.ToTable("td_sis_cur_record");
-               // builder.HasKey(x => x.Id);
+               builder.ToTable("td_sis_cur_record");
+               builder.HasKey(x => x.Id);
           }
      }
 }

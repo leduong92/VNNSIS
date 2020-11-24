@@ -8,8 +8,8 @@ namespace VNNSIS.Infrastructure.Data.Config
      {
           public void Configure(EntityTypeBuilder<TdCurMoldWashingLog> builder)
           {
-               // builder.ToTable("td_cur_mold_washing_log");
-               // builder.HasKey(x => x.Id);
+               builder.ToTable("td_cur_mold_washing_log");
+               builder.HasKey(x => x.Id);
                // builder.HasKey(x => x.MoldUp);
                // builder.HasKey(x => x.MoldDown);
           }

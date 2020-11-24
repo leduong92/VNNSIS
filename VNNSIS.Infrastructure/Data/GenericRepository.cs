@@ -9,13 +9,12 @@ namespace VNNSIS.Infrastructure.Data
 {
      public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
      {
-          private readonly SqlDbContext _sqlContext;
+
           private readonly PgDbContext _pgContext;
 
-          public GenericRepository(SqlDbContext sqlContext, PgDbContext pgContext)
+          public GenericRepository(PgDbContext pgContext)
           {
                _pgContext = pgContext;
-               _sqlContext = sqlContext;
           }
 
           public async Task<IReadOnlyList<T>> ListAllAsync()

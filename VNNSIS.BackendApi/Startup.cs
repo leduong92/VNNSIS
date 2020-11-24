@@ -27,7 +27,8 @@ namespace VNNSIS.BackendApi
                services.AddDbContext<PgDbContext>(options => options.UseNpgsql(_config.GetConnectionString(SystemConstants.PgDbConnect)));
                services.AddDbContext<SqlDbContext>(options => options.UseSqlServer(_config.GetConnectionString(SystemConstants.SqlDbConnect)));
                services.AddScoped<IUnitOfWork, UnitOfWork>();
-               services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+               services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+
           }
 
           // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,8 @@ namespace VNNSIS.Core.Entities.PgEntities
      [Table("td_cur_mold_washing_log")]
      public class TdCurMoldWashingLog : BaseEntity
      {
+          [Column("Id")]
+          public int Id { get; set; }
           [Column("mold_up")]
           public string MoldUp { get; set; }
           [Column("mold_down")]

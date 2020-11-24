@@ -65,8 +65,8 @@ namespace VNNSIS.Core.Entities.PgEntities
           [Column("status")]
           public string Status
           {
-               get { return location.ToString().Trim() ?? null; }
-               set { location = value.ToString().Trim(); }
+               get { return status.ToString().Trim() ?? null; }
+               set { status = value.ToString().Trim(); }
           }
           [Column("error_max")]
           public double? ErrorMax { get; set; }
