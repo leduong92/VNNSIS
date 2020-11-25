@@ -15,9 +15,7 @@ namespace VNNSIS.Core.Specification
                Criteria = criteria;
           }
           public Expression<Func<T, bool>> Criteria { get; }
-
           public List<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>();
-
           protected void AddInclued(Expression<Func<T, object>> includeExpression)
           {
                Includes.Add(includeExpression);
@@ -33,12 +31,10 @@ namespace VNNSIS.Core.Specification
                InclueStrings.Add(includeStrings);
           }
           public List<Expression<Func<T, object>>> IncluedsThenBy { get; private set; } = new List<Expression<Func<T, object>>>();
-
           protected void AddThenBy(Expression<Func<T, object>> includeThenByExpression)
           {
                IncluedsThenBy.Add(includeThenByExpression);
           }
-
           public Expression<Func<T, object>> OrderBy { get; private set; }
           protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
           {
@@ -49,20 +45,9 @@ namespace VNNSIS.Core.Specification
           {
                IncluedsThenByDesc.Add(thenByExpression);
           }
-
-          public Expression<Func<T, object>> GroupBy { get; private set; }
-          protected void AddGroupBy(Expression<Func<T, object>> groupByExpression)
-          {
-               GroupBy = groupByExpression;
-          }
-
-
           public int Take { get; private set; }
           public int Skip { get; private set; }
           public bool IsPagingEnabled { get; private set; }
-
-
-
           protected void ApplyPaging(int skip, int take)
           {
                Skip = skip;

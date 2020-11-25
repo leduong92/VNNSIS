@@ -1,9 +1,11 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VNNSIS.BackendApi.Helpers;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Infrastructure.Data;
 using VNNSIS.Infrastructure.EF;
@@ -28,6 +30,7 @@ namespace VNNSIS.BackendApi
                services.AddDbContext<SqlDbContext>(options => options.UseSqlServer(_config.GetConnectionString(SystemConstants.SqlDbConnect)));
                services.AddScoped<IUnitOfWork, UnitOfWork>();
                services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+               services.AddAutoMapper(typeof(MappingProfile));
 
           }
 

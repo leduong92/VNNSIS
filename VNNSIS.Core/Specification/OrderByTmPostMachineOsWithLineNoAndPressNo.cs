@@ -11,7 +11,13 @@ namespace VNNSIS.Core.Specification
                AddOrderBy(x => x.LineNo);
                AddThenBy(x => x.PressNo);
                AddThenBy(x => x.PressName);
+          }
 
+          public OrderByTmPostMachineOsWithLineNo(string line) : base(x => x.LineNo == line)
+          {
+               AddOrderBy(x => x.LineNo);
+               AddThenBy(x => x.PressNo);
+               AddThenBy(x => x.PressName);
           }
      }
 }

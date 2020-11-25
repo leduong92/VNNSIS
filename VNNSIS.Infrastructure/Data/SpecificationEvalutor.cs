@@ -21,12 +21,6 @@ namespace VNNSIS.Infrastructure.Data
                {
                     query = query.Where(spec.Criteria);
                }
-
-               if (spec.GroupBy != null)
-               {
-                    query = query.GroupBy(spec.GroupBy).SelectMany(x => x);
-               }
-
                if (spec.OrderBy != null)
                {
                     query = query.OrderBy(spec.OrderBy);
