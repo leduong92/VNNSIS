@@ -9,7 +9,7 @@ namespace VNNSIS.Infrastructure.Data.Config
           public void Configure(EntityTypeBuilder<TdCurMoldMaster> builder)
           {
                builder.ToTable("td_cur_mold_master");
-               builder.HasKey(x => new { x.MoldUp, x.MoldDown });
+               builder.HasKey(x => x.MoldUp);
           }
      }
 }
