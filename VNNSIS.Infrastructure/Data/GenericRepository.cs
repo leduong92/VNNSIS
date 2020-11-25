@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities;
 using VNNSIS.Core.Interfaces;
+using VNNSIS.Core.Specification;
 using VNNSIS.Infrastructure.EF;
 
 namespace VNNSIS.Infrastructure.Data
@@ -26,5 +28,22 @@ namespace VNNSIS.Infrastructure.Data
           {
                return await _pgContext.Set<T>().FindAsync(id);
           }
+
+          public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+          {
+               return await ApplySpecification(spec).ToListAsync();
+          }
+
+          private IQueryable<T> ApplySpecification(ISpecification<T> spec)
+          {
+               return SpecificationEvalutor<T>.GetQuery(_pgContext.Set<T>().AsQueryable(), spec);
+          }
+
+          public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
+          {
+               return await ApplySpecification(spec).FirstOrDefaultAsync();
+          }
+
+
      }
 }
