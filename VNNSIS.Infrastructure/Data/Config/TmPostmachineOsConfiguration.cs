@@ -9,7 +9,8 @@ namespace VNNSIS.Infrastructure.Data.Config
           public void Configure(EntityTypeBuilder<TmPostMachineOs> builder)
           {
                builder.ToTable("tm_postmachine_os");
-               builder.HasKey(x => new { x.LineNo, x.PressNo });
+               builder.HasKey(x => x.LineNo);
+               builder.HasKey(x => x.PressNo);
           }
      }
 }
