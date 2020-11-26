@@ -13,37 +13,36 @@ namespace VNNSIS.BackendApi.Controllers
 {
      public class HomeController : BaseApiController
      {
-          private readonly IUnitOfWork _uow;
-          private readonly IMapper _mapper;
-          public HomeController(IUnitOfWork uow, IMapper mapper)
+          private readonly IMenuService _menuService;
+          //private readonly IMapper _mapper;
+          public HomeController(IMenuService menuService)
           {
-               _uow = uow;
-               _mapper = mapper;
+               _menuService = menuService;
           }
 
           [HttpGet("menu")]
           public async Task<ActionResult<IReadOnlyList<MenuMasterTraining>>> GetMenu()
           {
-               var data = await _uow.SqlRepository<MenuMasterTraining>().ListAllAsync();
+               var data = await _menuService.GetMenuMaster();
                return Ok(data);
           }
 
-          [HttpGet]
-          public async Task<ActionResult<IReadOnlyList<TmPostMachineOsReturnDto>>> GetSection()
-          {
-               var section = await _uow.PgRepository<TmPostMachineOs>().ListAsync(new OrderByTmPostMachineOsWithLineNo());
+          // [HttpGet]
+          // public async Task<ActionResult<IReadOnlyList<TmPostMachineOsReturnDto>>> GetSection()
+          // {
+          //      var section = await _uow.PgRepository<TmPostMachineOs>().ListAsync(new OrderByTmPostMachineOsWithLineNo());
 
-               var data = _mapper.Map<IReadOnlyList<TmPostMachineOs>, IReadOnlyList<TmPostMachineOsReturnDto>>(section);
-               return Ok(data);
-          }
+          //      var data = _mapper.Map<IReadOnlyList<TmPostMachineOs>, IReadOnlyList<TmPostMachineOsReturnDto>>(section);
+          //      return Ok(data);
+          // }
 
-          [HttpGet("{line}")]
-          public async Task<ActionResult<IReadOnlyList<TmPostMachineOsReturnDto>>> GetMachineByLine(string line)
-          {
-               var result = await _uow.PgRepository<TmPostMachineOs>().ListAsync(new OrderByTmPostMachineOsWithLineNo(line));
+          // [HttpGet("{line}")]
+          // public async Task<ActionResult<IReadOnlyList<TmPostMachineOsReturnDto>>> GetMachineByLine(string line)
+          // {
+          //      var result = await _uow.PgRepository<TmPostMachineOs>().ListAsync(new OrderByTmPostMachineOsWithLineNo(line));
 
-               var data = _mapper.Map<IReadOnlyList<TmPostMachineOs>, IReadOnlyList<TmPostMachineOsReturnDto>>(result);
-               return Ok(data);
-          }
+          //      var data = _mapper.Map<IReadOnlyList<TmPostMachineOs>, IReadOnlyList<TmPostMachineOsReturnDto>>(result);
+          //      return Ok(data);
+          // }
      }
 }

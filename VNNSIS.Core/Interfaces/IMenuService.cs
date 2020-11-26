@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using VNNSIS.Core.Entities.SqlEntities;
+
 namespace VNNSIS.Core.Interfaces
 {
-    public class IMenuService
-    {
-        
-    }
+     public interface IMenuService
+     {
+          Task<IReadOnlyList<MenuMasterTraining>> GetMenuMaster();
+     }
 }
