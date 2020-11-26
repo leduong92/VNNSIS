@@ -7,6 +7,7 @@ using VNNSIS.Core.Specification;
 using System.Linq;
 using VNNSIS.BackendApi.Dtos;
 using AutoMapper;
+using VNNSIS.Core.Entities.SqlEntities;
 
 namespace VNNSIS.BackendApi.Controllers
 {
@@ -18,6 +19,13 @@ namespace VNNSIS.BackendApi.Controllers
           {
                _uow = uow;
                _mapper = mapper;
+          }
+
+          [HttpGet("menu")]
+          public async Task<ActionResult<IReadOnlyList<MenuMasterTraining>>> GetMenu()
+          {
+               var data = await _uow.SqlRepository<MenuMasterTraining>().ListAllAsync();
+               return Ok(data);
           }
 
           [HttpGet]

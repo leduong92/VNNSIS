@@ -12,3 +12,6 @@ C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\obj\Debug\netcoreapp3.1\V
 C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\obj\Debug\netcoreapp3.1\VNNSIS.Infrastructure.csproj.CopyComplete
 C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\obj\Debug\netcoreapp3.1\VNNSIS.Infrastructure.dll
 C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\obj\Debug\netcoreapp3.1\VNNSIS.Infrastructure.pdb
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\bin\Debug\netcoreapp3.1\VNNSIS.Infrastructure.runtimeconfig.json
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\bin\Debug\netcoreapp3.1\VNNSIS.Infrastructure.runtimeconfig.dev.json
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.Infrastructure\obj\Debug\netcoreapp3.1\VNNSIS.Infrastructure.genruntimeconfig.cache

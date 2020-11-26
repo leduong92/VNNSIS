@@ -12,21 +12,21 @@ namespace VNNSIS.Infrastructure.Data
      public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
      {
 
-          private readonly PgDbContext _pgContext;
+          private readonly DbContext _context;
 
-          public GenericRepository(PgDbContext pgContext)
+          public GenericRepository(DbContext context)
           {
-               _pgContext = pgContext;
+               _context = context;
           }
 
           public async Task<IReadOnlyList<T>> ListAllAsync()
           {
-               return await _pgContext.Set<T>().ToListAsync();
+               return await _context.Set<T>().ToListAsync();
           }
 
           public async Task<T> GetByIdAsync(string id)
           {
-               return await _pgContext.Set<T>().FindAsync(id);
+               return await _context.Set<T>().FindAsync(id);
           }
 
           public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
@@ -36,7 +36,7 @@ namespace VNNSIS.Infrastructure.Data
 
           private IQueryable<T> ApplySpecification(ISpecification<T> spec)
           {
-               return SpecificationEvalutor<T>.GetQuery(_pgContext.Set<T>().AsQueryable(), spec);
+               return SpecificationEvalutor<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
           }
 
           public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
