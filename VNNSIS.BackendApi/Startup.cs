@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using VNNSIS.BackendApi.Helpers;
 using VNNSIS.BackendApi.Middleware;
 using VNNSIS.Core.Interfaces;

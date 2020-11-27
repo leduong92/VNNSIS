@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using VNNSIS.Core.Entities;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Infrastructure.EF;
+using VNNSIS.Infrastructure.Services;
 
 namespace VNNSIS.Infrastructure.Data
 {
@@ -15,11 +13,14 @@ namespace VNNSIS.Infrastructure.Data
           private readonly PgDbContext _pgContext;
           private readonly SqlDbContext _sqlContext;
           private Hashtable _repository;
+
           public UnitOfWork(PgDbContext pgContext, SqlDbContext sqlContext)
           {
                _pgContext = pgContext;
                _sqlContext = sqlContext;
+               MenuMasters = new MenuService(_sqlContext, _pgContext);
           }
+          public IMenuService MenuMasters { get; private set; }
           public async Task<int> PgComplete()
           {
                return await _pgContext.SaveChangesAsync();

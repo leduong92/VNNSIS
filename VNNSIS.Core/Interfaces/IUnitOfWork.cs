@@ -9,5 +9,8 @@ namespace VNNSIS.Core.Interfaces
           IGenericRepository<TEntity> PgRepository<TEntity>() where TEntity : BaseEntity;
           IGenericRepository<TEntity> SqlRepository<TEntity>() where TEntity : BaseEntity;
           Task<int> PgComplete();
+
+          IMenuService MenuMasters { get; }
+
      }
 }

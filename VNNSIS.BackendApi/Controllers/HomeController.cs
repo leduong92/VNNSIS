@@ -14,7 +14,6 @@ namespace VNNSIS.BackendApi.Controllers
      public class HomeController : BaseApiController
      {
           private readonly IMenuService _menuService;
-          //private readonly IMapper _mapper;
           public HomeController(IMenuService menuService)
           {
                _menuService = menuService;
@@ -27,22 +26,5 @@ namespace VNNSIS.BackendApi.Controllers
                return Ok(data);
           }
 
-          // [HttpGet]
-          // public async Task<ActionResult<IReadOnlyList<TmPostMachineOsReturnDto>>> GetSection()
-          // {
-          //      var section = await _uow.PgRepository<TmPostMachineOs>().ListAsync(new OrderByTmPostMachineOsWithLineNo());
-
-          //      var data = _mapper.Map<IReadOnlyList<TmPostMachineOs>, IReadOnlyList<TmPostMachineOsReturnDto>>(section);
-          //      return Ok(data);
-          // }
-
-          // [HttpGet("{line}")]
-          // public async Task<ActionResult<IReadOnlyList<TmPostMachineOsReturnDto>>> GetMachineByLine(string line)
-          // {
-          //      var result = await _uow.PgRepository<TmPostMachineOs>().ListAsync(new OrderByTmPostMachineOsWithLineNo(line));
-
-          //      var data = _mapper.Map<IReadOnlyList<TmPostMachineOs>, IReadOnlyList<TmPostMachineOsReturnDto>>(result);
-          //      return Ok(data);
-          // }
      }
 }

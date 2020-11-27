@@ -11,14 +11,11 @@ namespace VNNSIS.Infrastructure.Data
 {
      public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
      {
-
           private readonly DbContext _context;
-
           public GenericRepository(DbContext context)
           {
                _context = context;
           }
-
           public async Task<IReadOnlyList<T>> ListAllAsync()
           {
                return await _context.Set<T>().ToListAsync();
