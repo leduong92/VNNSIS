@@ -5,20 +5,23 @@ using VNNSIS.Core.Entities;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Infrastructure.Data;
 using VNNSIS.Infrastructure.EF;
+using VNNSIS.Infrastructure.Repository;
 
 namespace Infrastructure.Data
 {
      public class UnitOfWork : IUnitOfWork
      {
-          private readonly SqlDbContext _sqlContext;
-          private readonly PgDbContext _pgContext;
+          public SqlDbContext _sqlContext { get; set; }
+          public PgDbContext _pgContext { get; set; }
           private Hashtable _repositories;
           public UnitOfWork(SqlDbContext sqlContext, PgDbContext pgContext)
           {
                _sqlContext = sqlContext;
                _pgContext = pgContext;
+               menuRepository = new MenuRepository(_sqlContext, _pgContext);
           }
 
+          public IMenuRepository menuRepository { get; set; }
           public async Task<int> Complete()
           {
                return await _sqlContext.SaveChangesAsync();

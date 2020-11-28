@@ -1548,6 +1548,9 @@
       "VNNSIS.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.0"
+        },
         "compile": {
           "bin/placeholder/VNNSIS.Core.dll": {}
         },

@@ -27,6 +27,8 @@ namespace VNNSIS.Infrastructure.EF
           public DbSet<TdSis4mMaster> TdSis4mMaster { get; set; }
           public DbSet<TdSisCurMenu> TdSisCurMenu { get; set; }
           public DbSet<TdSisCurRecord> TdSisCurRecord { get; set; }
+          public DbSet<TdJobPrmoldOs> TdJobPrmoldOs { get; set; }
+          public DbSet<TdJobProductOsLog> TdJobProductOsLogs { get; set; }
           public DbSet<TdSisErrorMenu> TdSisErrorMenu { get; set; }
           public DbSet<TdSisSectionLine> TdSisSectionLine { get; set; }
           public DbSet<TdSisSectionMaster> TdSisSectionMaster { get; set; }

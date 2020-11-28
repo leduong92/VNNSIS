@@ -10,8 +10,6 @@ namespace VNNSIS.Core.Interfaces
      {
           Task<IReadOnlyList<MenuMasterTraining>> GetMenuMaster();
           Task<IReadOnlyList<TmPostMachineOs>> GetMenu();
-
           Task<List<UserMachineVm>> GetUserMachineByLine(string line);
-
      }
 }
