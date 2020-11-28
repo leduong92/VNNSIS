@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities;
 using VNNSIS.Core.Specification;
 
 namespace VNNSIS.Infrastructure.Data
 {
-     public static class SpecificationEvalutor<TEntity> where TEntity : BaseEntity
+     public static class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
      {
           public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> spec)
           {
