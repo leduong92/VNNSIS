@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities.PgEntities;
+using VNNSIS.Core.ViewModels;
 
 namespace VNNSIS.Infrastructure.EF
 {
@@ -37,6 +38,7 @@ namespace VNNSIS.Infrastructure.EF
           public DbSet<TrCurJobOptNbcs> TrCurJobOptNbcs { get; set; }
           public DbSet<TrLblInfoNbcs> TrLblInfoNbcs { get; set; }
           public DbSet<TrLblOptNbcs> TrLblOptNbcs { get; set; }
+          public DbSet<UserMachineVm> UserMachineVms { get; set; }
 
      }
 }

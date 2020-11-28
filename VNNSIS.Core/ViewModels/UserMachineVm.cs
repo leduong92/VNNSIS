@@ -1,12 +1,15 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VNNSIS.Core.ViewModels
 {
      public class UserMachineVm
      {
+
           [Column("line_no")]
           public string LineNo { get; set; }
           [Column("press_no")]
+          [Key]
           public string PressNo { get; set; }
           [Column("plc_m")]
           public string PlcM { get; set; }

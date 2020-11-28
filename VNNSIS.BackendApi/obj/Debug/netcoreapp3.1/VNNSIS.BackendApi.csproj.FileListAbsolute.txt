@@ -71,3 +71,5 @@ C:\Users\11810677\Desktop\VNNSIS\VNNSIS.BackendApi\obj\Debug\netcoreapp3.1\VNNSI
 C:\Users\11810677\Desktop\VNNSIS\VNNSIS.BackendApi\obj\Debug\netcoreapp3.1\VNNSIS.BackendApi.genruntimeconfig.cache
 C:\Users\11810677\Desktop\VNNSIS\VNNSIS.BackendApi\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\11810677\Desktop\VNNSIS\VNNSIS.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.BackendApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\11810677\Desktop\VNNSIS\VNNSIS.BackendApi\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
