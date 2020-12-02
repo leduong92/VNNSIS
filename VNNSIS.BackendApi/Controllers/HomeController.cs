@@ -24,17 +24,17 @@ namespace VNNSIS.BackendApi.Controllers
 
                return Ok(data);
           }
-          [HttpGet("a")]
-          public async Task<ActionResult<IReadOnlyList<TmPostMachineOs>>> GetTmPostMachineOs()
+          [HttpGet("{role}")]
+          public async Task<ActionResult<IReadOnlyList<MenuMasterTraining>>> GetMenuByRole(string role)
           {
-               var data = await _menuService.GetMenu();
+               var data = await _menuService.GetMenuByRole(role);
 
                return Ok(data);
           }
           [HttpGet("{line}")]
           public async Task<ActionResult<List<UserMachineVm>>> Get(string line)
           {
-               var data = await _menuService.GetUserMachineByLine(line);
+               var data = await _menuService.GetUserInMachineByLine(line);
 
                return Ok(data);
           }

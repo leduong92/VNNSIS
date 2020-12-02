@@ -9,7 +9,10 @@ namespace VNNSIS.Core.Interfaces
      public interface IMenuService
      {
           Task<IReadOnlyList<MenuMasterTraining>> GetMenuMaster();
-          Task<IReadOnlyList<TmPostMachineOs>> GetMenu();
-          Task<List<UserMachineVm>> GetUserMachineByLine(string line);
+          Task<IReadOnlyList<MenuMasterTraining>> GetMenuByRole(string role);
+          Task<List<UserMachineVm>> GetUserInMachineByLine(string line);
+          Task<List<TmPostMachineOs>> GetMachineByLine(string line);
+          Task<List<TdSisSectionMaster>> GetSection();
+          Task<List<TdSisSectionLine>> GetLineBySection(string section);
      }
 }
