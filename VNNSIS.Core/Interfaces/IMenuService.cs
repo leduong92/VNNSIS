@@ -14,5 +14,7 @@ namespace VNNSIS.Core.Interfaces
           Task<List<TmPostMachineOs>> GetMachineByLine(string line);
           Task<List<TdSisSectionMaster>> GetSection();
           Task<List<TdSisSectionLine>> GetLineBySection(string section);
+          Task<List<TdSisErrorMenu>> GetErrorMenu();
      }
 }
+

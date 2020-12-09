@@ -17,7 +17,6 @@ namespace VNNSIS.Infrastructure.Services
                _uow = uow;
                _menuRepo = menuRepo;
           }
-
           public async Task<IReadOnlyList<MenuMasterTraining>> GetMenuMaster()
           {
                var data = await _uow.SqlRepository<MenuMasterTraining>().ListAsync();
@@ -48,6 +47,11 @@ namespace VNNSIS.Infrastructure.Services
           }
 
           public Task<List<TdSisSectionLine>> GetLineBySection(string section)
+          {
+               throw new System.NotImplementedException();
+          }
+
+          public Task<List<TdSisErrorMenu>> GetErrorMenu()
           {
                throw new System.NotImplementedException();
           }
