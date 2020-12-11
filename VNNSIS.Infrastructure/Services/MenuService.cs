@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VNNSIS.Core.Entities.PgEntities;
@@ -19,41 +20,48 @@ namespace VNNSIS.Infrastructure.Services
           }
           public async Task<IReadOnlyList<MenuMasterTraining>> GetMenuMaster()
           {
-               var data = await _uow.SqlRepository<MenuMasterTraining>().ListAsync();
+               var data = await _uow.SqlRepository<MenuMasterTraining>().ListAllAsync();
                return data;
           }
-
           public async Task<IReadOnlyList<MenuMasterTraining>> GetMenuByRole(string role)
           {
                var spec = new SelectMenuByStringId(role);
                var data = await _uow.SqlRepository<MenuMasterTraining>().ListAsync(spec);
                return data;
           }
-
-          public async Task<List<UserMachineVm>> GetUserInMachineByLine(string line)
+          public async Task<List<TdSisErrorMenu>> GetErrorMenu()
           {
-               var result = await _menuRepo.GetUserVm(line);
+               var lstErr = await _uow.PgRepository<TdSisErrorMenu>().ListAllAsync();
+               return lstErr;
+          }
+          public async Task<List<TdSisSectionMaster>> GetSection()
+          {
+               var section = await _uow.PgRepository<TdSisSectionMaster>().ListAllAsync();
+               return section;
+          }
+
+          public async Task<List<TdSisSectionLine>> GetLineBySection(string section)
+          {
+               var spec = new SelectLineBySection(section);
+               var data = await _uow.PgRepository<TdSisSectionLine>().ListAsync(spec);
+               return data;
+          }
+          public async Task<List<TmPostMachineOs>> GetMachineByLine(string line)
+          {
+               var result = await _menuRepo.GetMachineByLine(line);
                return result;
           }
 
-          public Task<List<TmPostMachineOs>> GetMachineByLine(string line)
+          public async Task<int> UpdTmPostMachineOs(UpdateTmMachineRequest request)
           {
-               throw new System.NotImplementedException();
+               var result = await _menuRepo.UpdTmPostMachineOs(request);
+               return result;
           }
 
-          public Task<List<TdSisSectionMaster>> GetSection()
+          public async Task<List<UserMachineVm>> GetUserVm(string line)
           {
-               throw new System.NotImplementedException();
-          }
-
-          public Task<List<TdSisSectionLine>> GetLineBySection(string section)
-          {
-               throw new System.NotImplementedException();
-          }
-
-          public Task<List<TdSisErrorMenu>> GetErrorMenu()
-          {
-               throw new System.NotImplementedException();
+               var result = await _menuRepo.GetUserVm(line);
+               return result;
           }
      }
 }

@@ -8,7 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Core.ViewModels;
 using VNNSIS.Infrastructure.EF;
-
+using VNNSIS.Core.Entities.PgEntities;
+using VNNSIS.Core.Specification;
+using System;
 
 namespace VNNSIS.Infrastructure.Repository
 {
@@ -20,6 +22,24 @@ namespace VNNSIS.Infrastructure.Repository
           {
                _sqlContext = sqlContext;
                _pgContext = pgContext;
+          }
+
+          public async Task<List<TmPostMachineOs>> GetMachineByLine(string line)
+          {
+               var data = await _pgContext.TmPostMachineOs.Where(x => x.LineNo == line && x.PressNo.StartsWith("D")).OrderBy(x => x.PressNo)
+               .Select(x => new TmPostMachineOs()
+               {
+                    LineNo = x.LineNo,
+                    PressNo = x.PressNo,
+                    PlcM = x.PlcM,
+                    PlcM1 = x.PlcM1,
+                    PlcM2 = x.PlcM2,
+                    Ip = x.Ip,
+                    Status = x.Status,
+                    MoldType = x.MoldType,
+                    TrimType = x.TrimType
+               }).ToListAsync();
+               return data;
           }
 
           public async Task<List<UserMachineVm>> GetUserVm(string line)
@@ -80,6 +100,19 @@ namespace VNNSIS.Infrastructure.Repository
 
 
                return data;
+          }
+
+          public async Task<int> UpdTmPostMachineOs(UpdateTmMachineRequest request)
+          {
+               var data = await _pgContext.TmPostMachineOs.Where(x => x.LineNo == request.LineNo && x.PressNo == x.PressNo).FirstOrDefaultAsync();
+               //if null ?
+
+               if (request.LineNo != null)
+               {
+                    data.Status = Convert.ToInt16(request.Value);
+               }
+               _pgContext.TmPostMachineOs.Update(data);
+               return await _pgContext.SaveChangesAsync();
           }
      }
 }

@@ -6,12 +6,10 @@ using VNNSIS.Core.ViewModels;
 
 namespace VNNSIS.Core.Interfaces
 {
-     public interface IMenuService
+     public interface IMenuService : IMenuRepository
      {
           Task<IReadOnlyList<MenuMasterTraining>> GetMenuMaster();
           Task<IReadOnlyList<MenuMasterTraining>> GetMenuByRole(string role);
-          Task<List<UserMachineVm>> GetUserInMachineByLine(string line);
-          Task<List<TmPostMachineOs>> GetMachineByLine(string line);
           Task<List<TdSisSectionMaster>> GetSection();
           Task<List<TdSisSectionLine>> GetLineBySection(string section);
           Task<List<TdSisErrorMenu>> GetErrorMenu();

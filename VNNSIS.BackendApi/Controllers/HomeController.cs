@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using VNNSIS.Core.Entities.PgEntities;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Core.Entities.SqlEntities;
 using VNNSIS.Core.ViewModels;
@@ -16,7 +15,7 @@ namespace VNNSIS.BackendApi.Controllers
                _menuService = menuService;
           }
 
-          [HttpGet("menu")]
+          [HttpGet]
           public async Task<ActionResult<IReadOnlyList<MenuMasterTraining>>> GetMenu()
           {
 
@@ -24,7 +23,7 @@ namespace VNNSIS.BackendApi.Controllers
 
                return Ok(data);
           }
-          [HttpGet("{role}")]
+          [HttpGet("role/{role}")]
           public async Task<ActionResult<IReadOnlyList<MenuMasterTraining>>> GetMenuByRole(string role)
           {
                var data = await _menuService.GetMenuByRole(role);
@@ -34,9 +33,23 @@ namespace VNNSIS.BackendApi.Controllers
           [HttpGet("{line}")]
           public async Task<ActionResult<List<UserMachineVm>>> Get(string line)
           {
-               var data = await _menuService.GetUserInMachineByLine(line);
+               var data = await _menuService.GetUserVm(line);
 
                return Ok(data);
+          }
+          [HttpPost]
+          public async Task<ActionResult> Update(UpdateTmMachineRequest request)
+          {
+               if (!ModelState.IsValid)
+               {
+                    return BadRequest(ModelState);
+               }
+               var affectedResult = await _menuService.UpdTmPostMachineOs(request);
+               if (affectedResult == 0)
+               {
+                    return BadRequest(0);
+               }
+               return Ok();
           }
 
      }

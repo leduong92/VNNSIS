@@ -35,6 +35,8 @@ namespace VNNSIS.BackendApi
                services.AddScoped<IMenuService, MenuService>();
                services.AddScoped<IMenuRepository, MenuRepository>();
                services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+               services.AddScoped<IDefectiveRepository, DefectiveRepository>();
+               services.AddScoped<IDefectiveService, DefectiveService>();
                services.AddAutoMapper(typeof(MappingProfile));
 
           }

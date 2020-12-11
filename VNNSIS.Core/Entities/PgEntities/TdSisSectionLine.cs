@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_sis_section_line")]
-     public class TdSisSectionLine
+     public class TdSisSectionLine : BaseEntity
      {
           private string lineNo;
           [Column("line_no")]
