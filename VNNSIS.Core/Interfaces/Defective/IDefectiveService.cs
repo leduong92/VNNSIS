@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VNNSIS.Core.ViewModels;
+
 namespace VNNSIS.Core.Interfaces
 {
-     public interface IDefectiveRepository
+     public interface IDefectiveService : IDefectiveRepository
      {
-          Task<List<InforProgressVm>> GetDataByJob(string job);
      }
 }

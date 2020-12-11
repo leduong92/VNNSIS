@@ -20,5 +20,11 @@ namespace VNNSIS.Infrastructure.Services
                var data = await _defectiveRepo.GetDataByJob(job);
                return data;
           }
+
+          public async Task<List<ErrorListVm>> GetErrListByOperationCode(string jobOrderNo, string operationCode)
+          {
+               var data = await _defectiveRepo.GetErrListByOperationCode(jobOrderNo, operationCode);
+               return data;
+          }
      }
 }

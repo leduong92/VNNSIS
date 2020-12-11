@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VNNSIS.Core.Entities.PgEntities;
+using VNNSIS.Core.Entities.SqlEntities;
 using VNNSIS.Core.ViewModels;
 
 namespace VNNSIS.Core.Interfaces
@@ -10,5 +11,6 @@ namespace VNNSIS.Core.Interfaces
           Task<List<UserMachineVm>> GetUserVm(string line);
           Task<List<TmPostMachineOs>> GetMachineByLine(string line);
           Task<int> UpdTmPostMachineOs(UpdateTmMachineRequest request);
+
      }
 }

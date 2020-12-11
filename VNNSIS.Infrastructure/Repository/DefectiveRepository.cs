@@ -42,7 +42,36 @@ namespace VNNSIS.Infrastructure.Repository
 
                }).ToListAsync();
                return result;
+          }
 
+          public async Task<List<ErrorListVm>> GetErrListByOperationCode(string jobOrderNo, string operationCode)
+          {
+               var query = from a in _pgContext.TdCurProgress
+                           join b in _pgContext.SiProErrorDetail on a.OperationSequence equals b.ProgressOperationSeq into ab
+                           from x in ab.DefaultIfEmpty()
+                           join c in _pgContext.SiProErrorMaster on x.ErrorId equals c.ErrorId into xc
+                           from y in xc.DefaultIfEmpty()
+                           join d in _pgContext.TdCurProgressCheck on a.OperationCode equals d.OperationCode into yd
+                           from z in yd.DefaultIfEmpty()
+                           where z.JobOrderNo == jobOrderNo && a.OperationCode == operationCode && x.Location.Contains("OS1") && x.Department.Contains("60") && x.ProgramId.Contains("ID")
+                           select new { a, x.ErrorId, x.Department, x.Area, x.ProgramId, y.ErrorName, y.ErrorNameJp, y.ErrorNameEn, z.StartDate, z.EndDate, z.MachineNo };
+               var data = await query.OrderBy(x => x.ErrorId).Select(o => new ErrorListVm()
+               {
+                    error_id = o.ErrorId,
+                    department = o.Department,
+                    area = o.Area,
+                    program_id = o.ProgramId,
+                    error_name = o.ErrorName,
+                    error_name_en = o.ErrorNameEn,
+                    error_name_jp = o.ErrorNameJp,
+                    start_date = o.StartDate,
+                    end_date = o.EndDate,
+                    machine_no = o.MachineNo,
+                    operation_code = o.a.OperationCode,
+                    operation_name = o.a.OperationName,
+                    operation_sequence = o.a.OperationSequence
+               }).ToListAsync();
+               return data;
           }
      }
 }

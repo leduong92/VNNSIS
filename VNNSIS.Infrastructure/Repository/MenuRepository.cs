@@ -53,7 +53,6 @@ namespace VNNSIS.Infrastructure.Repository
                // "where a.line_no = '{0}' and b.status = '1' and a.press_no like 'D%' order by a.press_no", lineNo);
                var query = from a in _pgContext.TmPostMachineOs
                            join b in _pgContext.TdJobPrmoldOs on new { a.LineNo, a.PressNo } equals new { b.LineNo, b.PressNo } into ab
-                           //on a.LineNo equals b.LineNo into ab
                            from x in ab.DefaultIfEmpty()
                            join c in _pgContext.TdSisCurMenu on a.Status.ToString() equals c.MenuId into cc
                            from y in cc.DefaultIfEmpty()
@@ -104,7 +103,7 @@ namespace VNNSIS.Infrastructure.Repository
 
           public async Task<int> UpdTmPostMachineOs(UpdateTmMachineRequest request)
           {
-               var data = await _pgContext.TmPostMachineOs.Where(x => x.LineNo == request.LineNo && x.PressNo == x.PressNo).FirstOrDefaultAsync();
+               var data = await _pgContext.TmPostMachineOs.Where(x => x.LineNo == request.LineNo && x.PressNo == request.PressNo).FirstOrDefaultAsync();
                //if null ?
 
                if (request.LineNo != null)

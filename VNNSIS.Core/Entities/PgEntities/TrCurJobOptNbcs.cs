@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VNNSIS.Core.Entities.PgEntities
 {
-     public class TrCurJobOptNbcs
+     public class TrCurJobOptNbcs : BaseEntity
      {
           [Column("record_status")]
           public string RecordStatus { get; set; }

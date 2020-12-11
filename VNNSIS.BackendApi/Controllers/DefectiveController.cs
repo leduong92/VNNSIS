@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Core.Entities.SqlEntities;
 using VNNSIS.Core.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VNNSIS.BackendApi.Controllers
 {
@@ -14,10 +15,17 @@ namespace VNNSIS.BackendApi.Controllers
           {
                _service = service;
           }
-          [HttpGet]
-          public async Task<ActionResult> GetData()
+          [HttpGet("{job}")]
+          public async Task<ActionResult> GetDataByJobNo(string job)
           {
-               var result = await _service.GetDataByJob("AA020082-010");
+               var result = await _service.GetDataByJob(job);
+               return Ok(result);
+          }
+          [HttpGet("featured/{job}/{operationcode}")]
+          [AllowAnonymous]
+          public async Task<ActionResult> GetDataByOperationCode(string job, string operationcode)
+          {
+               var result = await _service.GetErrListByOperationCode(job, operationcode);
                return Ok(result);
           }
      }

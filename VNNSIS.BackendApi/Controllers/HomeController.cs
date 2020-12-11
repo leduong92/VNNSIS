@@ -35,7 +35,7 @@ namespace VNNSIS.BackendApi.Controllers
                return Ok(data);
           }
           [HttpPost]
-          public async Task<ActionResult> Update(UpdateTmMachineRequest request)
+          public async Task<ActionResult> Update([FromQuery] UpdateTmMachineRequest request)
           {
                if (!ModelState.IsValid)
                {
