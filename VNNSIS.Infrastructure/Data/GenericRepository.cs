@@ -5,6 +5,8 @@ using VNNSIS.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Specification;
 using VNNSIS.Core.Entities;
+using System.Linq.Expressions;
+using System;
 
 namespace VNNSIS.Infrastructure.Data
 {
@@ -62,5 +64,16 @@ namespace VNNSIS.Infrastructure.Data
                _context.Set<T>().Remove(entity);
           }
 
+          public IQueryable<T> FindAll(Expression<Func<T, bool>> pression = null)
+          {
+               IQueryable<T> query = pression != null ? _context.Set<T>().Where(pression) : _context.Set<T>();
+
+               return query;
+          }
+
+          public IQueryable<T> FindAllWithSpecification(ISpecification<T> spec)
+          {
+               return ApplySpecification(spec);
+          }
      }
 }

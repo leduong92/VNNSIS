@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities.PgEntities;
+using VNNSIS.Core.ViewModels;
 
 namespace VNNSIS.Infrastructure.EF
 {
@@ -27,6 +28,8 @@ namespace VNNSIS.Infrastructure.EF
           public DbSet<TdSis4mMaster> TdSis4mMaster { get; set; }
           public DbSet<TdSisCurMenu> TdSisCurMenu { get; set; }
           public DbSet<TdSisCurRecord> TdSisCurRecord { get; set; }
+          public DbSet<TdJobPrmoldOs> TdJobPrmoldOs { get; set; }
+          public DbSet<TdJobProductOsLog> TdJobProductOsLogs { get; set; }
           public DbSet<TdSisErrorMenu> TdSisErrorMenu { get; set; }
           public DbSet<TdSisSectionLine> TdSisSectionLine { get; set; }
           public DbSet<TdSisSectionMaster> TdSisSectionMaster { get; set; }
@@ -35,6 +38,7 @@ namespace VNNSIS.Infrastructure.EF
           public DbSet<TrCurJobOptNbcs> TrCurJobOptNbcs { get; set; }
           public DbSet<TrLblInfoNbcs> TrLblInfoNbcs { get; set; }
           public DbSet<TrLblOptNbcs> TrLblOptNbcs { get; set; }
+          public DbSet<UserMachineVm> UserMachineVms { get; set; }
 
      }
 }

@@ -10,6 +10,7 @@ using VNNSIS.BackendApi.Middleware;
 using VNNSIS.Core.Interfaces;
 using VNNSIS.Infrastructure.Data;
 using VNNSIS.Infrastructure.EF;
+using VNNSIS.Infrastructure.Repository;
 using VNNSIS.Infrastructure.Services;
 using VNNSIS.Utilities.Constants;
 
@@ -32,7 +33,10 @@ namespace VNNSIS.BackendApi
                services.AddDbContext<SqlDbContext>(options => options.UseSqlServer(_config.GetConnectionString(SystemConstants.SqlDbConnect)));
                services.AddScoped<IUnitOfWork, UnitOfWork>();
                services.AddScoped<IMenuService, MenuService>();
+               services.AddScoped<IMenuRepository, MenuRepository>();
                services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+               services.AddScoped<IDefectiveRepository, DefectiveRepository>();
+               services.AddScoped<IDefectiveService, DefectiveService>();
                services.AddAutoMapper(typeof(MappingProfile));
 
           }

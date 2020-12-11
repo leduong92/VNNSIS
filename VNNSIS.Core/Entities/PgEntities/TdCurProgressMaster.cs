@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_cur_progress_master")]
-     public class TdCurProgressMaster
+     public class TdCurProgressMaster : BaseEntity
      {
           [Column("finished_goods_code")]
           public string FinishedGoodsCode { get; set; }

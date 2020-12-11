@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace VNNSIS.Core.Entities.PgEntities
 {
      [Table("td_job_prmold_os")]
-     public partial class TdJobPrmoldOs
+     public partial class TdJobPrmoldOs : BaseEntity
      {
           [Column("job_order_no")]
           public string JobOrderNo { get; set; }
