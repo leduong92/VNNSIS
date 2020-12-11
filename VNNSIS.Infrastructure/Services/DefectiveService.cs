@@ -15,9 +15,10 @@ namespace VNNSIS.Infrastructure.Services
                _defectiveRepo = defectiveRepo;
           }
 
-          public Task<List<InforProgressVm>> GetDataByJob(string job)
+          public async Task<List<InforProgressVm>> GetDataByJob(string job)
           {
-               throw new System.NotImplementedException();
+               var data = await _defectiveRepo.GetDataByJob(job);
+               return data;
           }
      }
 }

@@ -4,8 +4,8 @@ using VNNSIS.Core.ViewModels;
 
 namespace VNNSIS.Core.Interfaces
 {
-     public interface IDefectiveService : IDefectiveRepository
+     public interface IDefectiveService
      {
-
+          Task<List<InforProgressVm>> GetDataByJob(string job);
      }
 }

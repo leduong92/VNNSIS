@@ -14,13 +14,10 @@ namespace VNNSIS.BackendApi.Controllers
           {
                _menuService = menuService;
           }
-
           [HttpGet]
           public async Task<ActionResult<IReadOnlyList<MenuMasterTraining>>> GetMenu()
           {
-
                var data = await _menuService.GetMenuMaster();
-
                return Ok(data);
           }
           [HttpGet("role/{role}")]

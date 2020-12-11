@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VNNSIS.Core.Interfaces;
+using VNNSIS.Core.Entities.SqlEntities;
+using VNNSIS.Core.ViewModels;
 
 namespace VNNSIS.BackendApi.Controllers
 {
@@ -11,11 +14,10 @@ namespace VNNSIS.BackendApi.Controllers
           {
                _service = service;
           }
-
-          [HttpGet("{job}")]
-          public async Task<ActionResult> GetData(string job)
+          [HttpGet]
+          public async Task<ActionResult> GetData()
           {
-               var result = await _service.GetDataByJob(job);
+               var result = await _service.GetDataByJob("AA020082-010");
                return Ok(result);
           }
      }
