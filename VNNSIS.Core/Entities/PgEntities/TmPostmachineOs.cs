@@ -36,13 +36,13 @@ namespace VNNSIS.Core.Entities.PgEntities
           [Column("plc_m3")]
           public string PlcM3 { get; set; }
           [Column("post_cure_type")]
-          public int PostCureType { get; set; }
+          public int? PostCureType { get; set; }
           [Column("mold_type")]
-          public int MoldType { get; set; }
+          public int? MoldType { get; set; }
           [Column("trim_type")]
           public int? TrimType { get; set; }
           [Column("devices")]
-          public int Devices { get; set; }
+          public int? Devices { get; set; }
           [Column("memo")]
           public string Memo { get; set; }
      }
