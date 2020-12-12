@@ -2,6 +2,7 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using VNNSIS.Core.Entities.PgEntities;
 using VNNSIS.Core.ViewModels;
+using VNNSIS.Infrastructure.Data.PgConfig;
 
 namespace VNNSIS.Infrastructure.EF
 {
@@ -14,6 +15,7 @@ namespace VNNSIS.Infrastructure.EF
           protected override void OnModelCreating(ModelBuilder modelBuilder)
           {
                base.OnModelCreating(modelBuilder);
+               modelBuilder.ApplyConfiguration(new TmPostmachineOsConfiguration());
                modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
           }
           public DbSet<SiProErrorDetail> SiProErrorDetail { get; set; }

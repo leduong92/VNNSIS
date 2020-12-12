@@ -5,12 +5,17 @@ namespace VNNSIS.Core.ViewModels
 {
      public class UserMachineVm
      {
-
           [Column("line_no")]
           public string LineNo { get; set; }
-          [Column("press_no")]
           [Key]
+          [Column("press_no")]
           public string PressNo { get; set; }
+          [Column("press_name")]
+          public string PressName { get; set; }
+          [Column("location_cd")]
+          public string LocationCd { get; set; }
+          [Column("temperature")]
+          public int? Temperature { get; set; }
           [Column("plc_m")]
           public string PlcM { get; set; }
           [Column("plc_m1")]
@@ -20,8 +25,7 @@ namespace VNNSIS.Core.ViewModels
           [Column("ip")]
           public string Ip { get; set; }
           [Column("status")]
-          public int? Status { get; set; }
-
+          public int Status { get; set; }
           [Column("mold_type")]
           public int? MoldType { get; set; }
           [Column("trim_type")]

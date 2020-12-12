@@ -1,5 +1,4 @@
 using AutoMapper;
-using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,9 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using VNNSIS.BackendApi.Helpers;
 using VNNSIS.BackendApi.Middleware;
 using VNNSIS.Core.Interfaces;
-using VNNSIS.Infrastructure.Data;
 using VNNSIS.Infrastructure.EF;
-using VNNSIS.Infrastructure.Repository;
 using VNNSIS.Infrastructure.Services;
 using VNNSIS.Utilities.Constants;
 
@@ -31,12 +28,8 @@ namespace VNNSIS.BackendApi
                services.AddControllers();
                services.AddDbContext<PgDbContext>(options => options.UseNpgsql(_config.GetConnectionString(SystemConstants.PgDbConnect)));
                services.AddDbContext<SqlDbContext>(options => options.UseSqlServer(_config.GetConnectionString(SystemConstants.SqlDbConnect)));
-               services.AddScoped<IUnitOfWork, UnitOfWork>();
-               services.AddScoped<IMenuService, MenuService>();
-               services.AddScoped<IMenuRepository, MenuRepository>();
-               services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
-               services.AddScoped<IDefectiveRepository, DefectiveRepository>();
-               services.AddScoped<IDefectiveService, DefectiveService>();
+               services.AddTransient<IMenuService, MenuService>();
+               services.AddTransient<IDefectiveService, DefectiveService>();
                services.AddAutoMapper(typeof(MappingProfile));
 
           }
